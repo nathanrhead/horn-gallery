@@ -7,6 +7,11 @@
 - Ricardo Barcenas
 - Nathan Cox
 
+### TA Assistance
+
+- Nicco Ryan
+- Ron Dunphy
+
 ## Time Estimate and Feature Information
 
 Number and name of feature: #1 Display Images
@@ -32,10 +37,10 @@ Actual time needed to complete: 1.5 hours
 ---
 
 Number and name of feature: #2 Filter Images
-Estimate of time needed to complete:
-Start time:
-Finish time: 
-Actual time needed to complete: 
+Estimate of time needed to complete: 2 hours
+Start time: 4:45 pm
+Finish time: 7:45 pm
+Actual time needed to complete: 3 hours
 
 *Why are we implementing this feature?*
 

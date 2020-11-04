@@ -1,20 +1,27 @@
 'use strict'
 
+const allHornsArray = [];
+
+
 function Horns(animals) {
   this.image_url = animals.image_url;
   this.title = animals.title;
   this.description = animals.description;
   this.keyword = animals.keyword;
   this.horns = animals.horns;
+  allHornsArray.push(this);
 }
 
 // The constructor method
 Horns.prototype.render = function() {
   // This line will clone the template from the DOM.
   let $animalsClone = $('#template').clone();
-
+  $animalsClone.addClass(this.keyword);
   // This line will append the cloned template to the selected DOM element.
   $('main').append($animalsClone);
+
+  // This creates new options in our Select menu and applies title to each
+  $('select').append(new Option(this.keyword, this.keyword));
 
   // Let us now traverse and manipulate the DOM
   // These lines will add content to the template on the DOM
@@ -38,10 +45,24 @@ Horns.readJson = () => {
       data.forEach(value => {
         let animals = new Horns(value);
         animals.render();
-        console.log('Money', animals);
-
       })
     })
 }
 
 $(() => Horns.readJson());
+
+$('select').on('change', function(){
+  $('section').hide();
+  allHornsArray.forEach(show => {
+    // show = $(this).find(':selected').attr('value');
+    let $choice = this.value
+    if(show.keyword === $choice){
+      console.log('hello', this.value, show.keyword);
+      $(`section[class="${$choice}"]`).show();
+    }
+    console.log('hello', 'choice:', $choice);
+  })
+  // console.log('hello', this.value);
+  // console.log(src);
+  // $('section').attr('value', src)
+});
