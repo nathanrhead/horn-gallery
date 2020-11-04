@@ -32,7 +32,7 @@ Horns.prototype.render = function() {
   $animalsClone.find('p').text(this.horns);
 
   // This line will hide the html template on the DOM.
-  // $animalsClone.removeId('#template');
+  // $animalsClone.removeClass('.template');
 }
 
 // This is the instance method needed to read the contents of a JSON file.

@@ -58,10 +58,10 @@ Actual time needed to complete: 3 hours
 ---
 
 Number and name of feature: #3 Style the Application
-Estimate of time needed to complete:
-Start time:
-Finish time: 
-Actual time needed to complete: 
+Estimate of time needed to complete: 1 hours
+Start time: 7:45 p.m.
+Finish time: 9:25 p.m.
+Actual time needed to complete: 1.75 hours
 
 *Why are we implementing this feature?*
 
@@ -78,5 +78,8 @@ Actual time needed to complete:
 
 ---
 
+## Reflections
 
-## 
+- The fifteen-minute rule applies to everyone.
+- .show() is the opposite of .hide().
+- We remember more than we think we do.
