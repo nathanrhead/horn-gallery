@@ -1,0 +1,27 @@
+section {
+  float: left;
+  border: 2px solid maroon;
+  width: 250px;
+  height: 450px;
+  margin: 5px;
+  padding: 5px;
+  color: white;
+  font-size: 20px;
+}
+
+img {
+  max-width: 240px;
+  margin-bottom: 15px;
+}
+
+main > section:first-child {
+  display: none;
+}
+
+select, option{
+  font-family: 'Syne Tactile', cursive;
+  background-color: maroon;
+  border-radius: 6px 25px 4px 15px;
+  font-size: 18px;
+  outline: none;
+}

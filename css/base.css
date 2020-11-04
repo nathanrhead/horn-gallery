@@ -1,1 +1,31 @@
 @import "reset.css";
+@import "layouts.css";
+@import "modules.css";
+
+body {
+  margin: auto;
+  width: 75%;
+  background-color: black;
+  font-family: 'Syne Tactile', cursive;
+
+}
+
+header {
+  text-align: center;
+  margin: 15px 0;
+  padding: 5px; 
+  font-size: 48px;
+  text-shadow: maroon 2px 5px;
+}
+
+main {
+  overflow: hidden;
+  position: relative;
+  left: 100px; 
+}
+
+footer {
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
