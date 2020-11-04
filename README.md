@@ -10,8 +10,8 @@
 ## Time Estimate and Feature Information
 
 Number and name of feature: #1 Display Images
-Estimate of time needed to complete:
-Start time:
+Estimate of time needed to complete: 1 hour
+Start time: 3:00 p.m.
 Finish time: 
 Actual time needed to complete: 
 
