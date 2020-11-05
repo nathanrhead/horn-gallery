@@ -1,5 +1,5 @@
 section {
-  float: left;
+  display: flex;
   border: 2px solid maroon;
   width: 250px;
   height: 450px;
@@ -14,14 +14,18 @@ img {
   margin-bottom: 15px;
 }
 
-main > section:first-child {
-  display: none;
-}
-
 select, option{
   font-family: 'Syne Tactile', cursive;
   background-color: maroon;
   border-radius: 6px 25px 4px 15px;
   font-size: 18px;
   outline: none;
+}
+
+div {
+  border: 1px solid maroon;
+}
+
+#template {
+  display: none;
 }

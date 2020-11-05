@@ -1,6 +1,7 @@
 @import "reset.css";
-@import "layouts.css";
 @import "modules.css";
+@import "layouts.css";
+
 
 body {
   margin: auto;
@@ -19,9 +20,9 @@ header {
 }
 
 main {
-  overflow: hidden;
-  position: relative;
-  left: 100px; 
+  float: left;
+  width: 960px;
+  /* overflow: hidden; */
 }
 
 footer {
@@ -29,3 +30,4 @@ footer {
   padding: 30px;
   text-align: center;
 }
+
