@@ -1,6 +1,7 @@
 'use strict'
 
 const allHornsArray = [];
+const allHornsArray2 = [];
 
 
 function Horns(animals) {
@@ -16,6 +17,7 @@ function Horns(animals) {
 Horns.prototype.render = function() {
   // This line will clone the template from the DOM.
   let $animalsClone = $('#template').clone();
+
   $animalsClone.addClass(this.keyword);
   // This line will append the cloned template to the selected DOM element.
   $('main').append($animalsClone);
@@ -32,7 +34,7 @@ Horns.prototype.render = function() {
   $animalsClone.find('p').text(this.horns);
 
   // This line will hide the html template on the DOM.
-  // $animalsClone.removeClass('.template');
+  // $animalsClone.removeId('#template');
 }
 
 // This is the instance method needed to read the contents of a JSON file.
@@ -43,6 +45,7 @@ Horns.readJson = () => {
   $.ajax('../data/page-1.json', ajaxSettings)
     .then(data => {
       data.forEach(value => {
+        // console.log(data);
         let animals = new Horns(value);
         animals.render();
       })
@@ -62,7 +65,62 @@ $('select').on('change', function(){
     }
     console.log('hello', 'choice:', $choice);
   })
-  // console.log('hello', this.value);
-  // console.log(src);
-  // $('section').attr('value', src)
 });
+
+
+
+function Horns2(page2){
+  for (let key in page2){
+    this[key] = page2[key];
+  }
+}
+
+Horns2.prototype.html = function(){
+  let template = $('#photo-template').html();
+  let html = Mustache.render(template, this);
+  return html;
+}
+
+Horns2.readJson2 = () => {
+  const ajaxSettings = { method: 'get', dataType: 'json' };
+
+  // This line will get our JSON file.
+  $.ajax('../data/page-2.json', ajaxSettings)
+    .then(data => {
+      // console.log('this is data from json2', data);
+      data.forEach(value => {
+        // let animals2 =
+        allHornsArray2.push(new Horns2(value));
+        // console.log(animals2);
+
+        // $('button').on('click', () => {
+        //   $('section').hide();
+        //   $(() => Horns2.readJson2());
+        //   allHornsArray2.forEach(renderAnimal => {
+        //     console.log('info here', renderAnimal);
+        //     $('section').append(renderAnimal.html());
+        //   });
+      })
+    })
+    .then(() => {
+      allHornsArray2.forEach(renderAnimal => {
+        console.log(renderAnimal, 'asakdfskjdd')
+        $('section').append(renderAnimal.html()).show();
+        // console.log(allHornsArray2, 'how many animals are being rendered?')
+      });
+    })
+}
+
+
+$('button').on('click', () => {
+  $('section').hide();
+  $(() => Horns2.readJson2());
+  console.log('info here', allHornsArray2);
+  // allHornsArray2.forEach(renderAnimal => {
+  //   $('section').append(renderAnimal.html()).show();
+  // });
+})
+
+
+
+

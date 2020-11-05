@@ -15,17 +15,23 @@
     </header>
     <main>
       <section id="template">
-        <img class="image" src="" alt="">
-        <h2 class="title"></h2>
-        <article class="description"></article>
-        <h3 class="keyword"></h3>
-        <p class="horns"></p>
+        <template id="photo-template" type="text/x-tmpl-mustache">
+          <img class="image" src="{{ image_url }}" alt="">
+          <h2 class="title">{{ title }}</h2>
+          <article class="description">{{ description }}</article>
+          <h3 class="keyword">{{ keyword }}</h3>
+          <p class="horns">{{ horns }}</p>
+        </template>
       </section>
     </main>
     <footer>
+      <button id="secondPage" class="secondPage">Page 2</button>
       &copy; 2020 CF MoFo
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script> 
+    <!-- <script src="data/page-1.json"></script> -->
+    <!-- <script src="data/page-2.json"></script> -->
     <script src="js/app.js"></script>
   </body>
 </html>
