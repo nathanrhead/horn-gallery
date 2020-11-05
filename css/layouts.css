@@ -14,9 +14,9 @@ img {
   margin-bottom: 15px;
 }
 
-main > section:first-child {
+/* main > section:first-child {
   display: none;
-}
+} */
 
 select, option{
   font-family: 'Syne Tactile', cursive;
