@@ -3,16 +3,6 @@
 const allHornsArray = [];
 const allHornsArray2 = [];
 
-
-// function Horns(animals) {
-//   this.image_url = animals.image_url;
-//   this.title = animals.title;
-//   this.description = animals.description;
-//   this.keyword = animals.keyword;
-//   this.horns = animals.horns;
-//   allHornsArray.push(this);
-// }
-
 function Horns(page1) {
   for(let key in page1) {
     this[key] = page1[key];
@@ -20,45 +10,43 @@ function Horns(page1) {
 }
 
 Horns.prototype.render = function() {
-  console.log(this);
   let template = $('#photo-template').html();
   let html = Mustache.render(template, this);
+  $('#photo-template').addClass(this.keyword);
   return html;
 }
 
-Horns.readJson = () => {
+Horns.readJson = function () {
   let ajaxSettings = { method: 'get', dataType: 'json'};
   $.ajax('../data/page-1.json', ajaxSettings)
     .then(data => {
       data.forEach(value => {
         allHornsArray.push(new Horns(value));
-        // let animals = new Horns(value);
-        // value.render();
       })
     })
     .then(() => {
-      console.log(allHornsArray);
       allHornsArray.forEach(renderAnimal1 => {
-        console.log(renderAnimal1);
+
         $('select').append(new Option(renderAnimal1.keyword));
         $('main').append(renderAnimal1.render());
       })
     })
+  $('select').on('change', function(){
+    $('div').hide();
+    allHornsArray.forEach(show => {
+
+      let $choice = this.value
+      if(show.keyword === $choice){
+        let check = '.' + $choice;
+        console.log($choice);
+        $(check).show();
+      }
+    })
+  });
 }
 
 $(() => Horns.readJson());
 
-$('select').on('change', function(){
-  $('main').hide();
-  allHornsArray.forEach(show => {
-    let $choice = this.value
-    if(show.keyword === $choice){
-      console.log('hello', this.value, show.keyword);
-      $(`#photo-template[class="${$choice}"]`).show();
-    }
-    console.log('hello', 'choice:', $choice);
-  })
-});
 
 function Horns2(page2){
   for (let key in page2){
@@ -78,26 +66,41 @@ Horns2.readJson2 = () => {
   // This line will get our JSON file.
   $.ajax('../data/page-2.json', ajaxSettings)
     .then(data => {
-      // console.log('this is data from json2', data);
       data.forEach(value => {
-        // let animals2 =
         allHornsArray2.push(new Horns2(value));
       })
     })
     .then(() => {
       allHornsArray2.forEach(renderAnimal => {
-        console.log(renderAnimal, 'asakdfskjdd')
         $('main').append(renderAnimal.html()).show();
+        // $('select').val('');
         $('select').append(new Option(renderAnimal.keyword));
       });
     })
+  $('select').on('change', function(){
+    $('div').hide();
+    allHornsArray2.forEach(show => {
+
+      let $choice = this.value
+      if(show.keyword === $choice){
+        let check = '.' + $choice;
+        console.log($choice);
+        $(check).show();
+      }
+    })
+  });
+
 }
 
 $('button').on('click', () => {
   $('main').children().hide();
-  $(() => Horns2.readJson2())
+  $('button').off();
+  $(() => Horns2.readJson2());
+  $('button').remove();
 })
 
 
-
+// Two problems:
+// 1. The dropdown includes keywords from page 2;
+// 2. A user may select page 1 keywords on page 2, but not page 2 keywords.
 
