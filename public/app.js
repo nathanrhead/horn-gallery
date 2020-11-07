@@ -18,7 +18,7 @@ Horns.prototype.render = function() {
 
 Horns.readJson = function () {
   let ajaxSettings = { method: 'get', dataType: 'json'};
-  $.ajax('../data/page-1.json', ajaxSettings)
+  $.ajax('./data/page-1.json', ajaxSettings)
     .then(data => {
       data.forEach(value => {
         allHornsArray.push(new Horns(value));
@@ -47,7 +47,6 @@ Horns.readJson = function () {
 
 $(() => Horns.readJson());
 
-
 function Horns2(page2){
   for (let key in page2){
     this[key] = page2[key];
@@ -64,7 +63,7 @@ Horns2.readJson2 = () => {
   const ajaxSettings = { method: 'get', dataType: 'json' };
 
   // This line will get our JSON file.
-  $.ajax('../data/page-2.json', ajaxSettings)
+  $.ajax('./data/page-2.json', ajaxSettings)
     .then(data => {
       data.forEach(value => {
         allHornsArray2.push(new Horns2(value));
