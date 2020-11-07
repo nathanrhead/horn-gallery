@@ -10,10 +10,10 @@ const PORT = process.env.PORT || 3000;
 // this allows express to server "static files"
 app.use(express.static('./public'));
 
-// SERVER ROUTE
-app.get('/about-us', (request, response) => {
-  response.send('i am the about us webpage');
-});
+// // SERVER ROUTE
+// app.get('/about-us', (request, response) => {
+//   response.send('i am the about us webpage');
+// });
 
 // SERVER ROUTE - simply "serves" a webpage
 app.get('/', (request, response) => {
